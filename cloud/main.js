@@ -3,6 +3,10 @@ Parse.Cloud.define('hello', function(req, res) {
   res.success('Hello from Azure.');
 });
 
+Parse.Cloud.defin('testFunction', function(req,res){
+	res.success('Hello from test.');
+});
+
 Parse.Cloud.define("modifyUser", function(request, response) {
   if (!request.user) {
     response.error("Must be signed in to call this Cloud Function.")
