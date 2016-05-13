@@ -11,11 +11,11 @@
     },
     "APP_ID": {
       "description": "A unique identifier for your app.",
-      "value": "myAppId"
+      "value": "test_id"
     },
     "MASTER_KEY": {
       "description": "A key that overrides all permissions. Keep this secret.",
-      "value": "myMasterKey"
+      "value": "test_key"
     }
   },
   "image": "heroku/nodejs",
