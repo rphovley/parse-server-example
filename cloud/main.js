@@ -3,15 +3,32 @@ Parse.Cloud.define('hello', function(req, res) {
   res.success('Hello from Azure.');
 });
 
-Parse.Cloud.defin('testFunction', function(req,res){
+/*Parse.Cloud.defin('testFunction', function(req,res){
 	res.success('Hello from test.');
-});
+});*/
 
-Parse.Cloud.define("modifyUser", function(request, response) {
+/*Parse.Cloud.define("modifyUser", function(request, response) {
   if (!request.user) {
     response.error("Must be signed in to call this Cloud Function.")
     return;
   }
+
+  example test call
+
+	Parse.Cloud.run('modifyUser', { username: 'userA' }, {
+	  success: function(status) {
+	    // the user was updated successfully
+	  },
+	  error: function(error) {
+	    // error
+	  }
+	});
+
+  
+
+
+
+
   // The user making this request is available in request.user
   // Make sure to first check if this user is authorized to perform this change.
   // One way of doing so is to query an Admin role and check if the user belongs to that Role.
@@ -61,4 +78,4 @@ Parse.Cloud.define("modifyUser", function(request, response) {
       response.error("Could not find user.");
     }
   });
-});
+});*/
