@@ -13,7 +13,7 @@ Parse.Cloud.define("deleteUser", function(req,res){
     return;
   }
   var query = new Parse.Query("ExtendedUser");
-  query.equalTo("parent", req.params.id);
+  query.equalTo("parent", req.user.id);
 
   var hello = function(user){
     res.success('Hello from delete.' + user.get("first_name"));
@@ -24,7 +24,8 @@ Parse.Cloud.define("deleteUser", function(req,res){
     // Successfully retrieved the object.
     if(user.get("corporate_role") === 'Admin'){
       hello(user);
-
+    }else{
+      res.success("not admin");
     }
       
     },
