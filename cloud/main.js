@@ -29,6 +29,7 @@ Parse.Cloud.define("deleteUser", function(req,res){
       }*/
   //query.equalTo("parent", req.user.id);
   //res.success('Hello from delete.');
+  Parse.Cloud.useMasterKey();
   var hello = function(user){
     res.success('Hello from delete.' + user.get("first_name"));
   }
