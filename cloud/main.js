@@ -12,12 +12,12 @@ Parse.Cloud.define("deleteUser", function(req,res){
     response.error("Must be signed in to call this Cloud Function.")
     return;
   }
-  //var query = new Parse.Query("ExtendedUser");
-  //query.equalTo("parent", req.user.id);
+  var query = new Parse.Query("ExtendedUser");
+  query.equalTo("parent", req.user.id);
   res.success('Hello from delete.');
-  /*var hello = function(user){
+  var hello = function(user){
     res.success('Hello from delete.' + user.get("first_name"));
-  }*/
+  }
   // Get the first user which matches the above constraints.
   /*query.first({
     success: function(user) {
