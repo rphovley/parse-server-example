@@ -6,8 +6,8 @@ Parse.Cloud.define('hello', function(req, res) {
 /*Parse.Cloud.defin('testFunction', function(req,res){
 	res.success('Hello from test.');
 });*/
-Parse.initialize('test_ud');
-Parse.serverURL = 'https://officedev.paulhovley.com/parse';
+/*Parse.initialize('test_ud');
+Parse.serverURL = 'https://officedev.paulhovley.com/parse';*/
 Parse.Cloud.define("deleteUser", function(req,res){
   if (!req.user) {
     response.error("Must be signed in to call this Cloud Function.")
@@ -15,30 +15,30 @@ Parse.Cloud.define("deleteUser", function(req,res){
   }
   var query = new Parse.Query("ExtendedUser");
   query.equalTo("parent", req.user.id);
-  res.success('Hello from delete.');
+  //res.success('Hello from delete.');
   var hello = function(user){
     res.success('Hello from delete.' + user.get("first_name"));
   }
   // Get the first user which matches the above constraints.
-  //hello(req.user);
-  /*query.first({
+  hello(req.user);
+  query.first({
     success: function(user) {
     // Successfully retrieved the object.
     console.log("before response");
     hello(user);
     res.success('Hello from delete.' + user.get("first_name"));
-    if(user.get("corporate_role") === 'Admin'){
+    /*if(user.get("corporate_role") === 'Admin'){
       hello(user);
     }else{
       res.success("not admin");
-    }
+    }*/
       
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
       res.success('Hello from delete.' + user.get("first_name"));
     }
-  });*/
+  });
 
   
   
