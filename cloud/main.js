@@ -15,8 +15,10 @@ Parse.Cloud.define("deleteUser", function(req,res){
     return;
   }
   console.log(req.user.id);
+  var extendedUser = new ExtendedUser();
+  extendedUser.id = req.user.id;
   var query = new Parse.Query("ExtendedUser");
-  query.equalTo("parent", req.user);
+  query.equalTo("parent", extendedUser);
   //res.success('Hello from delete.');
   var hello = function(user){
     res.success(user);
