@@ -16,8 +16,8 @@ Parse.Cloud.define("deleteUser", function(req,res){
   }
   console.log(req.user.id);
   var query = new Parse.Query("ExtendedUser");
-  var clientOrigin = req.getHeader("origin");
-  console.log("clientOrigin = " + clientOrigin);
+  /*var clientOrigin = req.getHeader("origin");
+  console.log("clientOrigin = " + clientOrigin);*/
 
       // lock down Access Control to certain origins
       /*if (clientOrigin != null) {
