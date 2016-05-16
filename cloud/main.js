@@ -16,6 +16,18 @@ Parse.Cloud.define("deleteUser", function(req,res){
   }
   console.log(req.user.id);
   var query = new Parse.Query("ExtendedUser");
+  var clientOrigin = req.getHeader("origin");
+  console.log("clientOrigin = " + clientOrigin);
+
+      // lock down Access Control to certain origins
+      /*if (clientOrigin != null) {
+          if (clientOrigin.contains("localhost") ||
+                  clientOrigin.contains("file")  ||
+                  clientOrigin.contains("mycee.com") ||
+                  clientOrigin.contains("10.0.0.3")) {
+              response.addHeader("Access-Control-Allow-Origin", clientOrigin);
+          }
+      }*/
   //query.equalTo("parent", req.user.id);
   //res.success('Hello from delete.');
   var hello = function(user){
