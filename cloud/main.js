@@ -16,13 +16,13 @@ Parse.Cloud.define("deleteUser", function(req,res){
   }
   console.log(req.user.id);
   var query = new Parse.Query("ExtendedUser");
-  query.equalTo("parent", req.user.id);
+  //query.equalTo("parent", req.user.id);
   //res.success('Hello from delete.');
   var hello = function(user){
     res.success('Hello from delete.' + user.get("first_name"));
   }
   // Get the first user which matches the above constraints.
-  query.first({
+  query.find({
     success: function(user) {
     // Successfully retrieved the object.
     console.log("before response");
