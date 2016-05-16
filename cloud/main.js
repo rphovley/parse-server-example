@@ -6,7 +6,8 @@ Parse.Cloud.define('hello', function(req, res) {
 /*Parse.Cloud.defin('testFunction', function(req,res){
 	res.success('Hello from test.');
 });*/
-
+Parse.initialize('test_ud');
+Parse.serverURL = 'https://officedev.paulhovley.com/parse';
 Parse.Cloud.define("deleteUser", function(req,res){
   if (!req.user) {
     response.error("Must be signed in to call this Cloud Function.")
