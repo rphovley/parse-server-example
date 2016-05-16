@@ -14,15 +14,20 @@ Parse.Cloud.define("deleteUser", function(req,res){
     response.error("Must be signed in to call this Cloud Function.")
     return;
   }
-  console.log(req.user.id);
+  
   var extendedUser = new Parse.Object("ExtendedUser");
   extendedUser.id = req.user.id;
   var query = new Parse.Query("ExtendedUser");
   query.equalTo("parent", extendedUser);
+
+  var response = function (user){
+    res.success(user);
+  }
   //res.success('Hello from delete.');
   var hello = function(user){
     res.success(user);
   }
+  response(req.user);
   // Get the first user which matches the above constraints.
   query.find({useMasterKey: true}).then(function(user) {
     // Successfully retrieved the object.
