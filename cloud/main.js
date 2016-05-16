@@ -7,6 +7,32 @@ Parse.Cloud.define('hello', function(req, res) {
 	res.success('Hello from test.');
 });*/
 
+Parse.Cloud.define("deleteUser", function(req,res){
+  if (!request.user) {
+    response.error("Must be signed in to call this Cloud Function.")
+    return;
+  }
+  var query = new Parse.Query("ExtendedUser");
+  query.equalTo("parent", request.params.id);
+
+  var hello = function(){
+    res.success('Hello from delete.');
+  }
+  // Get the first user which matches the above constraints.
+  query.first({
+    success: function(user) {
+    // Successfully retrieved the object.
+      hello();
+    },
+    error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+  });
+
+  
+  
+});
+
 /*Parse.Cloud.define("modifyUser", function(request, response) {
   if (!request.user) {
     response.error("Must be signed in to call this Cloud Function.")
