@@ -23,7 +23,7 @@ Parse.Cloud.define("deleteUser", function(req,res){
     success: function(user) {
     // Successfully retrieved the object.
     console.log("before response");
-    hellow(user);
+    hello(user);
     if(user.get("corporate_role") === 'Admin'){
       hello(user);
     }else{
