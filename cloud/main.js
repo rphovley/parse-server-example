@@ -16,17 +16,6 @@ Parse.Cloud.define("deleteUser", function(req,res){
   }
   console.log(req.user.id);
   var query = new Parse.Query("ExtendedUser");
-  /*var clientOrigin = req.getHeader("origin");
-  console.log("clientOrigin = " + clientOrigin);*/
-      // lock down Access Control to certain origins
-      /*if (clientOrigin != null) {
-          if (clientOrigin.contains("localhost") ||
-                  clientOrigin.contains("file")  ||
-                  clientOrigin.contains("mycee.com") ||
-                  clientOrigin.contains("10.0.0.3")) {
-              response.addHeader("Access-Control-Allow-Origin", clientOrigin);
-          }
-      }*/
   query.equalTo("parent", req.user.id);
   //res.success('Hello from delete.');
   Parse.Cloud.useMasterKey();
@@ -34,23 +23,10 @@ Parse.Cloud.define("deleteUser", function(req,res){
     res.success('Hello from delete.' + user.get("first_name"));
   }
   // Get the first user which matches the above constraints.
-  query.find({useMasterKey: true, 
-    success: function(user) {
+  query.find({useMasterKey: true,}).then(function(user) {
     // Successfully retrieved the object.
     console.log("before response");
-    res.success('Hello from delete.' + user.get("first_name"));
-    /*if(user.get("corporate_role") === 'Admin'){
-      hello(user);
-    }else{
-      res.success("not admin");
-    }*/
-      
-    },
-    error: function(error) {
-      alert("Error: " + error.code + " " + error.message);
-      res.error("Error: " + error.code + " " + error.message);
-      res.success('Hello from delete.' + user.get("first_name"));
-    }
+    res.success('Hello from delete.');
   }).fail(function(error){
     res.error("Error:" + error.code + " " + error.message + " " + error);
   });
