@@ -20,24 +20,25 @@ Parse.Cloud.define("deleteUser", function(req,res){
     res.success('Hello from delete.' + user.get("first_name"));
   }
   // Get the first user which matches the above constraints.
-  query.first({
+  hello(req.user);
+  /*query.first({
     success: function(user) {
     // Successfully retrieved the object.
     console.log("before response");
     hello(user);
     res.success('Hello from delete.' + user.get("first_name"));
-    /*if(user.get("corporate_role") === 'Admin'){
+    if(user.get("corporate_role") === 'Admin'){
       hello(user);
     }else{
       res.success("not admin");
-    }*/
+    }
       
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
       res.success('Hello from delete.' + user.get("first_name"));
     }
-  });
+  });*/
 
   
   
