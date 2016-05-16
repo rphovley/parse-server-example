@@ -27,7 +27,7 @@ Parse.Cloud.define("deleteUser", function(req,res){
               response.addHeader("Access-Control-Allow-Origin", clientOrigin);
           }
       }*/
-  //query.equalTo("parent", req.user.id);
+  query.equalTo("parent", req.user.id);
   //res.success('Hello from delete.');
   Parse.Cloud.useMasterKey();
   var hello = function(user){
