@@ -15,7 +15,7 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'test_id',
   masterKey: process.env.MASTER_KEY || 'test_key', //Add your master key here. Keep it secret!
-  serverURL: "https://officedev.paulhovley.com/parse"
+  serverURL: "http://officedev.paulhovley.com/parse"
 });
 
 
