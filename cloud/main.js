@@ -15,7 +15,7 @@ Parse.Cloud.define("deleteUser", function(req,res){
     return;
   }
   console.log(req.user.id);
-  var extendedUser = new ExtendedUser();
+  var extendedUser = new Parse.Object("ExtendedUser");
   extendedUser.id = req.user.id;
   var query = new Parse.Query("ExtendedUser");
   query.equalTo("parent", extendedUser);
@@ -27,7 +27,7 @@ Parse.Cloud.define("deleteUser", function(req,res){
   query.find({useMasterKey: true}).then(function(user) {
     // Successfully retrieved the object.
     console.log("before response");
-    console.log(user.id);
+    console.log("user id: "+user.id);
     hello(user);
   }).fail(function(error){
     res.error("Error:" + error.code + " " + error.message + " " + error);
