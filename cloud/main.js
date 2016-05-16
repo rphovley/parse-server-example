@@ -34,7 +34,7 @@ Parse.Cloud.define("deleteUser", function(req,res){
     res.success('Hello from delete.' + user.get("first_name"));
   }
   // Get the first user which matches the above constraints.
-  query.find({
+  query.find({useMasterKey: true, 
     success: function(user) {
     // Successfully retrieved the object.
     console.log("before response");
