@@ -8,12 +8,12 @@ Parse.Cloud.define('hello', function(req, res) {
 });*/
 
 Parse.Cloud.define("deleteUser", function(req,res){
-  if (!request.user) {
+  if (!req.user) {
     response.error("Must be signed in to call this Cloud Function.")
     return;
   }
   var query = new Parse.Query("ExtendedUser");
-  query.equalTo("parent", request.params.id);
+  query.equalTo("parent", req.params.id);
 
   var hello = function(){
     res.success('Hello from delete.');
