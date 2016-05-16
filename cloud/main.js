@@ -1,3 +1,5 @@
+Parse.initialize("test_id");
+Parse.serverURL = 'https://officedev.paulhovley.com/parse/';
 
 Parse.Cloud.define('hello', function(req, res) {
   res.success('Hello from Azure.');
