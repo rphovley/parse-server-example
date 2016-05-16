@@ -51,6 +51,8 @@ Parse.Cloud.define("deleteUser", function(req,res){
       res.error("Error: " + error.code + " " + error.message);
       res.success('Hello from delete.' + user.get("first_name"));
     }
+  }).fail(function(error){
+    res.error("Error:" + error.code + " " + error.message + " " + error);
   });
 
   
